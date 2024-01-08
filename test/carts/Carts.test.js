@@ -1,4 +1,4 @@
-import 'dotenv/config';
+//import 'dotenv/config';
 import cartModel from '../../src/models/carts.models.js';
 import Assert from 'assert';
 import mongoose from 'mongoose';

@@ -1,6 +1,6 @@
 import logger from '../utils/loggers.js';
 import nodeMailer from 'nodemailer';
-import 'dotenv/config';
+//import 'dotenv/config';
 
 export const transporter = nodeMailer.createTransport({
     host: 'smtp.gmail.com', // host para gmail;

@@ -3,7 +3,7 @@ import { sendRecoveryEmail } from '../config/nodemailer.js';
 import userModel from '../models/users.model.js';
 import logger from '../utils/loggers.js';
 import { createHash, validatePassword } from '../utils/bcrypt.js';
-import 'dotenv/config'
+//import 'dotenv/config'
 
 const postUser = async (req, res) => {
 	try {

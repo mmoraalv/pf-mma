@@ -1,4 +1,4 @@
-import 'dotenv/config' //Permite utilizar variables de entorno
+//import 'dotenv/config' //Permite utilizar variables de entorno
 import express from 'express';
 import { engine } from 'express-handlebars'
 import { Server } from 'socket.io'
