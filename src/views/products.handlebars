@@ -1,0 +1,27 @@
+<main>
+    <h1> Bienvenido a la Tienda {{info}}</h1>
+    <a href="/user/details">Ir a mi perfil</a>
+    <form action="/api/session/logout" method="">
+        <button>Logout</button>
+    </form>
+    
+
+
+
+<head>
+    <title>Lista de Productos</title>
+</head>
+<body>
+    <h2>Lista de Productos</h2>
+    <ul>
+        {{#each products}}
+            <li>
+                <h3>{{this.title}}</h3>
+                <p>Precio: ${{this.price}}</p>
+                <p>Descripción: {{this.description}}</p>
+                <a href="/products/{{this._id}}">Ver detalles</a>
+            </li>
+        {{/each}}
+    </ul>
+</body>
+</main>
