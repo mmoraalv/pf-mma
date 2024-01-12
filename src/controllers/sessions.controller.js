@@ -21,6 +21,17 @@ const postSession = async (req, res) => {
     }
 };
 
+const postRegister = async (req, res) => {
+	try {
+		if (!req.user) {
+			return res.status(400).send({ mensaje: 'Usuario existente' });
+		}
+		res.status(200).send({ mensaje: 'Usuario creado' });
+	} catch (error) {
+		res.status(500).send({ mensaje: `Error al crear el usuario ${error}` });
+	}
+};
+
 const getCurrentSession = async (req, res) => {
     logger.debug('Obteniendo sesión actual'); // Registro de un mensaje de depuración
     res.status(200).send(req.user);
@@ -48,6 +59,7 @@ const getLogout = (req, res) => {
 
 const sessionController = {
     postSession,
+    postRegister,
     getCurrentSession,
     getGithubCreateUser,
     getGithubSession,

@@ -1,4 +1,4 @@
-//import 'dotenv/config' //Permite utilizar variables de entorno
+import 'dotenv/config' //Permite utilizar variables de entorno
 import express from 'express';
 import { engine } from 'express-handlebars'
 import { Server } from 'socket.io'
@@ -27,8 +27,6 @@ mongoose.connect(process.env.MONGO_URL)
 const server = app.listen(PORT,()=>{
     console.log(`Server on port: ${PORT}`);
 })
-
-//const io = new Server(server)
 
 //Middlewares
 app.use(express.json());
@@ -75,38 +73,3 @@ app.set('views', path.resolve(__dirname, './views'))
 app.use('/static', express.static(path.join(__dirname, '/public')));
 app.use('/static', routerHandlebars);
 app.use('/', router);
-//app.get('/mockingproducts', generateMockProducts);
-
-//Cookies
-/*app.get('/setCookie', (req, res) => {
-    res.cookie('CookieCookie', 'Esto es el valor de una cookie',{ maxAge: 60000, signed: true }).send('Cookie creada') //Cookie de un minuto firmada
-})
-
-app.get('/getCookie', (req, res) => {
-    res.send(req.signedCookies) //Consultar solo las cookies firmadas
-    //res.send(req.cookies) Consultar TODAS las cookies
-}) */
-
-//Conexion de Socket.io
-
-/*const mensajes = []
-
-io.on('connection', socket => {
-	console.log('Conexión con Socket.io');
-
-    socket.on('mensaje', async info => {
-        console.log(info);
-        mensajes.push(info);
-        io.emit('mensajes', mensajes);
-
-        // Guardar el mensaje en la base de datos utilizando el modelo
-        try {
-            await messageModel.create({
-                user: info.user,
-                mensaje: info.mensaje
-            });
-        } catch (error) {
-            console.error("Error al guardar el mensaje en la base de datos:", error);
-        }
-    });
-});*/

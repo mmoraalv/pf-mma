@@ -7,6 +7,8 @@ const sessionRouter = Router();
 
 sessionRouter.post('/login', passport.authenticate('login'), sessionController.postSession);
 
+sessionRouter.post('/register', passport.authenticate('register'), sessionController.postRegister);
+
 sessionRouter.get('/current', passportError('jwt'), sessionController.getCurrentSession);
 
 sessionRouter.get('/github', passport.authenticate('github', { scope: ['user: email'] }),

@@ -3,18 +3,7 @@ import { sendRecoveryEmail } from '../config/nodemailer.js';
 import userModel from '../models/users.model.js';
 import logger from '../utils/loggers.js';
 import { createHash, validatePassword } from '../utils/bcrypt.js';
-//import 'dotenv/config'
-
-const postUser = async (req, res) => {
-	try {
-		if (!req.user) {
-			return res.status(400).send({ mensaje: 'Usuario existente' });
-		}
-		res.status(200).send({ mensaje: 'Usuario creado' });
-	} catch (error) {
-		res.status(500).send({ mensaje: `Error al crear el usuario ${error}` });
-	}
-};
+import 'dotenv/config'
 
 const getUsers = async (req, res) => {
     try {
@@ -189,6 +178,6 @@ const deleteInactiveUsers = async (req, res) => {
     }
 };
 
-const usersController = { getUsers, postUser, recoveryPassword, resetPassword, deleteUser, uploadDocuments, deleteInactiveUsers };
+const usersController = { getUsers, recoveryPassword, resetPassword, deleteUser, uploadDocuments, deleteInactiveUsers };
 
 export default usersController;

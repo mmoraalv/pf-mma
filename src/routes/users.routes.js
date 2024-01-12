@@ -5,8 +5,6 @@ import { upload } from "../config/config.js";
 
 const userRouter = Router();
 
-userRouter.post('/', passport.authenticate('register'), usersController.postUser);
-
 userRouter.get('/', usersController.getUsers);
 
 userRouter.post('/recovery', usersController.recoveryPassword);
